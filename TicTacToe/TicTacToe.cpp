@@ -4,22 +4,23 @@
 #include <iostream>
 #include "Grid.h"
 
-void CheckIfCrossHasWon();
-void CheckIfCircleHasWon();
+void CheckForWinner();
+CellState playerShape;
 
 int main()
 {
+    ShowStartDialogue();
+    char charValue = static_cast<char>(playerShape);
+    std::cout << charValue << " ";
+    /*ShowGrid();
+    SetGridEmpty();
     ShowGrid();
-
-    CheckIfCrossHasWon();
-    CheckIfCircleHasWon();
+    CheckForWinner();*/
 
     return 0;
 }
 
-void CheckIfCrossHasWon() {
+void CheckForWinner() {
     if (CheckForThreeInARow(CellState::Cross)) std::cout << "\nCross has won!\n";
-}
-void CheckIfCircleHasWon() {
     if (CheckForThreeInARow(CellState::Circle)) std::cout << "\Circle has won!\n";
 }

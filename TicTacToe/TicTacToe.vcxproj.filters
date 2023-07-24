@@ -18,6 +18,12 @@
     <ClCompile Include="TicTacToe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputHandeler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Grid.h">

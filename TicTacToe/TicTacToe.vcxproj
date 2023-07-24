@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InputHandeler.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="TicTacToe.cpp" />
   </ItemGroup>
   <ItemGroup>
