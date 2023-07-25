@@ -47,3 +47,27 @@ void SetGridEmpty()
 		}
 	}
 }
+
+void SetCellToSomething(CellState targetState, int place)
+{
+	if (place > 9 || place < 1) return;
+
+	if (place == 1) grid[0][0] = targetState;
+	else if (place == 2) grid[0][1] = targetState;
+	else if (place == 3) grid[0][2] = targetState;
+	else if (place == 4) grid[1][0] = targetState;
+	else if (place == 5) grid[1][1] = targetState;
+	else if (place == 6) grid[1][2] = targetState;
+	else if (place == 7) grid[2][0] = targetState;
+	else if (place == 8) grid[2][1] = targetState;
+	else if (place == 9) grid[2][2] = targetState;
+}
+
+int RandomNumber()
+{
+	/* initialize random seed: */
+	srand(time(NULL));
+
+	/* generate secret number: */
+	return rand() % 9 + 1;
+}
