@@ -10,6 +10,7 @@ bool validCells[9];
 
 void ShowGrid()
 {
+	std::cout << "\n";
 	for (int i = 0; i < 3; ++i) {
 		for (int j = 0; j < 3; ++j) {
 			char charValue = static_cast<char>(grid[i][j]);
@@ -19,23 +20,22 @@ void ShowGrid()
 	}
 }
 
-bool CheckForThreeInARow(CellState state) {
-	// Check rows
+bool CheckForThreeInARow(CellState state) 
+{
 	for (int i = 0; i < 3; ++i) {
-		if (grid[i][0] == state && grid[i][1] == state && grid[i][2] == state)
+		if ((grid[i][0] == state && grid[i][1] == state && grid[i][2] == state) || // Check rows
+			(grid[0][i] == state && grid[1][i] == state && grid[2][i] == state))   // Check columns
+		{
 			return true;
-	}
-
-	// Check columns
-	for (int j = 0; j < 3; ++j) {
-		if (grid[0][j] == state && grid[1][j] == state && grid[2][j] == state)
-			return true;
+		}
 	}
 
 	// Check diagonals
 	if ((grid[0][0] == state && grid[1][1] == state && grid[2][2] == state) ||
 		(grid[0][2] == state && grid[1][1] == state && grid[2][0] == state))
+	{
 		return true;
+	}
 
 	return false;
 }
