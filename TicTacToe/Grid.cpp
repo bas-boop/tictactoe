@@ -79,6 +79,22 @@ int RandomNumber()
 	return rand() % 9 + 1;
 }
 
+bool CheckForWinner() {
+	if (CheckForThreeInARow(CellState::Cross))
+	{
+		std::cout << "\nCross has won!\n";
+		return true;
+	}
+	if (CheckForThreeInARow(CellState::Circle))
+	{
+		std::cout << "\nCircle has won!\n";
+		return true;
+	}
+
+	return false;
+}
+
+
 bool CheckForDraw()
 {
 	for (int i = 0; i < 3; ++i)
@@ -92,5 +108,6 @@ bool CheckForDraw()
 		}
 	}
 
+	std::cout << "It's a draw!\n";
 	return true; // No empty cells found, game is a draw
 }

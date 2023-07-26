@@ -1,4 +1,5 @@
 #include <iostream>
+#include "InputHandeler.h"
 #include "Grid.h"
 
 CellState playerShape;
@@ -7,7 +8,7 @@ int targetPlace;
 
 void ShowStartDialogue()
 {
-	std::cout << "Welcome to C++ Tic-Tac-Toe\nHere you can play a old time classic game.\nDo you want to be the cross or circle?\n";
+	std::cout << "Welcome to C++ Tic-Tac-Toe\nHere you can play a old time classic game.\nPress any key & enter!\n";
 	char inputPlayerShape;
 	std::cin >> inputPlayerShape;
 
@@ -15,7 +16,8 @@ void ShowStartDialogue()
 		std::cout << "\nTyp X or O.";
 		std::cin >> inputPlayerShape;
 		if (inputPlayerShape == 'X' || inputPlayerShape == 'O') break;
-	} while (inputPlayerShape != 'X' || inputPlayerShape != 'O');
+	}
+	while (inputPlayerShape != 'X' || inputPlayerShape != 'O');
 
 	if (inputPlayerShape == 'X')
 	{
@@ -38,14 +40,9 @@ void AskWhereToPlace(CellState currentPlayer)
 	if (!SetCellToSomething(currentPlayer, targetPlace)) AskAgain(currentPlayer);
 	ShowGrid();
 
-    if (CheckForWinner()) return;
-	if (CheckForDraw())
-	{
-		std::cout << "It's a draw!\n";
-		return;
-	}
+    if (CheckForWinner() || CheckForDraw()) return;
 
-    // Switch between players by modifying the currentPlayer reference
+    // Switch between players by modifying the newPlayer reference
 	CellState newPlayer;
     if (currentPlayer == playerShape)
     {
