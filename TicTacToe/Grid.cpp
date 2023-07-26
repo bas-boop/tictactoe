@@ -47,6 +47,10 @@ void SetGridEmpty()
 			grid[i][j] = CellState::Empty;
 		}
 	}
+	for (int i = 0; i < 9; ++i)
+	{
+		validCells[i] = false;
+	}
 }
 
 bool SetCellToSomething(CellState targetState, int place)
@@ -64,9 +68,10 @@ bool SetCellToSomething(CellState targetState, int place)
 
 bool IsValidCell(int place)
 {
-	if (validCells[place]) return false;
+	if (place >= 10) return false;
+	if (validCells[place - 1]) return false;
 
-	validCells[place] = true;
+	validCells[place - 1] = true;
 	return true;
 }
 

@@ -8,6 +8,7 @@ int main()
     SetGridEmpty();
     ShowGrid();
     AskWhereToPlace(playerShape);
+    if(PlayAgain()) main();
 
     return 0;
 }

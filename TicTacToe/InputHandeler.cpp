@@ -13,7 +13,7 @@ void ShowStartDialogue()
 	std::cin >> inputPlayerShape;
 
 	do {
-		std::cout << "\nTyp X or O.";
+		std::cout << "\nTyp X or O.\n";
 		std::cin >> inputPlayerShape;
 		if (inputPlayerShape == 'X' || inputPlayerShape == 'O') break;
 	}
@@ -29,6 +29,8 @@ void ShowStartDialogue()
 		playerShape = CellState::Circle;
 		player2Shape = CellState::Cross;
 	}
+
+	std::cout << "\nThe spots are in this order:\n1,2,3\n4,5,6\n7,8,9\n";
 }
 
 void AskWhereToPlace(CellState currentPlayer)
@@ -44,16 +46,8 @@ void AskWhereToPlace(CellState currentPlayer)
 
     // Switch between players by modifying the newPlayer reference
 	CellState newPlayer;
-    if (currentPlayer == playerShape)
-    {
-		newPlayer = player2Shape;
-		std::cout << "\nP1";
-    }
-    else if (currentPlayer == player2Shape)
-    {
-		newPlayer = playerShape;
-		std::cout << "\nP2";
-    }
+    if (currentPlayer == playerShape) newPlayer = player2Shape;
+    else if (currentPlayer == player2Shape) newPlayer = playerShape;
 
     AskWhereToPlace(newPlayer);
 }
@@ -65,4 +59,14 @@ void AskAgain(CellState currentPlayer)
 	std::cin >> targetPlace;
 
 	if (!SetCellToSomething(currentPlayer, targetPlace)) AskAgain(currentPlayer);
+}
+
+bool PlayAgain()
+{
+	char playAgain;
+	std::cout << "\nWant to play again?\nY/N\n";
+	std::cin >> playAgain;
+
+	if (playAgain == 'Y') return true;
+	else return false;
 }

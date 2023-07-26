@@ -9,5 +9,6 @@ extern CellState player2Shape;
 void ShowStartDialogue();
 void AskWhereToPlace(CellState currentPlayer);
 void AskAgain(CellState currentPlayer);
+bool PlayAgain();
 
 #endif
