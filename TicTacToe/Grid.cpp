@@ -2,10 +2,11 @@
 #include "Grid.h"
 
 CellState grid[3][3] = {
-	{CellState::Cross, CellState::Cross, CellState::Circle},
-	{CellState::Cross, CellState::Circle, CellState::Empty},
-	{CellState::Cross, CellState::Empty, CellState::Circle}
+	{ CellState::Empty, CellState::Empty, CellState::Empty },
+	{ CellState::Empty, CellState::Empty, CellState::Empty },
+	{ CellState::Empty, CellState::Empty, CellState::Empty }
 };
+bool validCells[9];
 
 void ShowGrid()
 {
@@ -48,19 +49,25 @@ void SetGridEmpty()
 	}
 }
 
-void SetCellToSomething(CellState targetState, int place)
+bool SetCellToSomething(CellState targetState, int place)
 {
-	if (place > 9 || place < 1) return;
+	if (IsValidCell(place))
+	{
+		int row = (place - 1) / 3;
+		int col = (place - 1) % 3;
+		grid[row][col] = targetState;
+		return true;
+	}
 
-	if (place == 1) grid[0][0] = targetState;
-	else if (place == 2) grid[0][1] = targetState;
-	else if (place == 3) grid[0][2] = targetState;
-	else if (place == 4) grid[1][0] = targetState;
-	else if (place == 5) grid[1][1] = targetState;
-	else if (place == 6) grid[1][2] = targetState;
-	else if (place == 7) grid[2][0] = targetState;
-	else if (place == 8) grid[2][1] = targetState;
-	else if (place == 9) grid[2][2] = targetState;
+	return false;
+}
+
+bool IsValidCell(int place)
+{
+	if (validCells[place]) return false;
+
+	validCells[place] = true;
+	return true;
 }
 
 int RandomNumber()
@@ -70,4 +77,20 @@ int RandomNumber()
 
 	/* generate secret number: */
 	return rand() % 9 + 1;
+}
+
+bool CheckForDraw()
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		for (int j = 0; j < 3; ++j)
+		{
+			if (grid[i][j] == CellState::Empty)
+			{
+				return false; // Found an empty cell, game is not a draw
+			}
+		}
+	}
+
+	return true; // No empty cells found, game is a draw
 }

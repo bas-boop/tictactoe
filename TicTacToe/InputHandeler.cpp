@@ -34,13 +34,38 @@ void AskWhereToPlace(CellState currentPlayer)
 	char charValue = static_cast<char>(currentPlayer);
 	std::cout << "\nWhere do you want to place " << charValue << " ";
 	std::cin >> targetPlace;
-	SetCellToSomething(currentPlayer, targetPlace);
+
+	if (!SetCellToSomething(currentPlayer, targetPlace)) AskAgain(currentPlayer);
 	ShowGrid();
 
-	if (CheckForWinner()) return;
+    if (CheckForWinner()) return;
+	if (CheckForDraw())
+	{
+		std::cout << "It's a draw!\n";
+		return;
+	}
 
-	if (currentPlayer == playerShape) currentPlayer = player2Shape;
-	else if (currentPlayer == player2Shape) currentPlayer = playerShape;
+    // Switch between players by modifying the currentPlayer reference
+	CellState newPlayer;
+    if (currentPlayer == playerShape)
+    {
+		newPlayer = player2Shape;
+		std::cout << "\nP1";
+    }
+    else if (currentPlayer == player2Shape)
+    {
+		newPlayer = playerShape;
+		std::cout << "\nP2";
+    }
 
-	AskWhereToPlace(currentPlayer);
+    AskWhereToPlace(newPlayer);
+}
+
+void AskAgain(CellState currentPlayer)
+{
+	char charValue = static_cast<char>(currentPlayer);
+	std::cout << "\nThat spot is already taken, chose a diffrent place.\nWhere do you want to place " << charValue << " ";
+	std::cin >> targetPlace;
+
+	if (!SetCellToSomething(currentPlayer, targetPlace)) AskAgain(currentPlayer);
 }
