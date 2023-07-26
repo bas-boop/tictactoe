@@ -8,13 +8,12 @@ int targetPlace;
 
 void ShowStartDialogue()
 {
-	std::cout << "Welcome to C++ Tic-Tac-Toe\nHere you can play a old time classic game.\nPress any key & enter!\n";
+	std::cout << "Welcome to C++ Tic-Tac-Toe\nHere you can play a old time classic game.\n";
 	char inputPlayerShape;
-	std::cin >> inputPlayerShape;
 
 	do {
-		std::cout << "\nTyp X or O.\n";
-		std::cin >> inputPlayerShape;
+		std::cout << "Typ X or O.\n";
+		std::cin >> inputPlayerShape; //todo: input can only be 1 char, not a string.
 		if (inputPlayerShape == 'X' || inputPlayerShape == 'O') break;
 	}
 	while (inputPlayerShape != 'X' || inputPlayerShape != 'O');

@@ -2,7 +2,7 @@
 A console app where you can play tic-tac-toe with somelse.<br>
 
 - [x] Co-op
-- [ ] AI oppentend
+- [ ] AI opponent
 
 ## Script highlights
 [Main](TicTacToe/TicTacToe.cpp)<br>
