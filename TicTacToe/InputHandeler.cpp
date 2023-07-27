@@ -1,6 +1,7 @@
 #include <iostream>
 #include "InputHandeler.h"
 #include "Grid.h"
+#include "AI.h"
 
 CellState playerShape;
 CellState player2Shape;
@@ -48,7 +49,8 @@ void AskWhereToPlace(CellState currentPlayer)
     if (currentPlayer == playerShape) newPlayer = player2Shape;
     else if (currentPlayer == player2Shape) newPlayer = playerShape;
 
-    AskWhereToPlace(newPlayer);
+	PlaceCell();
+    //AskWhereToPlace(newPlayer);
 }
 
 void AskAgain(CellState currentPlayer)

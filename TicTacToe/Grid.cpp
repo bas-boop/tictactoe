@@ -75,15 +75,6 @@ bool IsValidCell(int place)
 	return true;
 }
 
-int RandomNumber()
-{
-	/* initialize random seed: */
-	srand(time(NULL));
-
-	/* generate secret number: */
-	return rand() % 9 + 1;
-}
-
 bool CheckForWinner() {
 	if (CheckForThreeInARow(CellState::Cross))
 	{

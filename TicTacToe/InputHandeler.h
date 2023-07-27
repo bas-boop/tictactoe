@@ -1,6 +1,5 @@
 #ifndef INPUTHANDELER_H
 #define INPUTHANDELER_H
-#include <iostream>
 #include "Grid.h"
 
 extern CellState playerShape;

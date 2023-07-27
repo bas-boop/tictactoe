@@ -9,7 +9,8 @@ int main()
     ShowStartDialogue();
     SetGridEmpty();
     ShowGrid();
-    AskWhereToPlace(CoinFlip());
+    AskWhereToPlace(playerShape);
+    //AskWhereToPlace(CoinFlip());
     if(PlayAgain()) main();
 
     return 0;
