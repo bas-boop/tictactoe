@@ -51,7 +51,8 @@ void AskCoopOrAI()
 		isAI = true;
 		AskWhereToPlace(CoinFlip(), isAI); 
 	}
-	else if (input == 'F') AskWhereToPlace(CoinFlip());
+	else if (input == 'F') 
+		AskWhereToPlace(CoinFlip());
 }
 
 void AskWhereToPlace(CellState currentPlayer, bool isAITurn)

@@ -20,6 +20,7 @@ void AIPlaceCell()
 
 	char charValue = static_cast<char>(player2Shape);
 	std::cout << "\nThe computer has placed " << charValue << " "; 
+
 	ShowGrid();
 	AskWhereToPlace(SwitchPlayer(player2Shape), false);
 }

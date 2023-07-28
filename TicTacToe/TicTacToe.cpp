@@ -6,7 +6,6 @@ int main()
 {
     ShowStartDialogue();
     SetGridEmpty();
-    //ChooseShape();
     AskCoopOrAI();
     if(PlayAgain()) main();
 
