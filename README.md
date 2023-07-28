@@ -10,4 +10,5 @@ A console app where you can play tic-tac-toe with somelse.<br>
 ## Script highlights
 [Main](TicTacToe/TicTacToe.cpp)<br>
 [InputHandeler](TicTacToe/InputHandeler.cpp)<br>
-[Grid](TicTacToe/Grid.cpp)
+[Grid](TicTacToe/Grid.cpp)<br>
+[AI](TicTacToe/AI.cpp)
