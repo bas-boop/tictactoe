@@ -11,7 +11,7 @@ int RandomNumber()
 	return rand() % 9 + 1;
 }
 
-void PlaceCell()
+void AIPlaceCell()
 {
 	while (true)
 	{
@@ -20,7 +20,6 @@ void PlaceCell()
 
 	char charValue = static_cast<char>(player2Shape);
 	std::cout << "\nThe computer has placed " << charValue << " "; 
-
 	ShowGrid();
-	AskWhereToPlace(playerShape);
+	AskWhereToPlace(SwitchPlayer(player2Shape), false);
 }
