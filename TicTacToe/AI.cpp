@@ -1,5 +1,6 @@
 #include <iostream>
 #include "AI.h"
+#include "EasyAI.h"
 #include "Grid.h"
 #include "InputHandeler.h"
 
@@ -29,26 +30,19 @@ void SetDifficulty(char target)
     std::cout << "The computer has been set to: " << GetAIDifficultyName(currentDifficulty) << " ";
 }
 
-int RandomNumber()
-{
-	/* initialize random seed: */
-	srand(time(NULL));
-
-	/* generate secret number: */
-	return rand() % 9 + 1;
-}
-
 void AIPlaceCell()
 {
+    EasyAI easy;
+    
     switch (currentDifficulty) {
     case AIDifficulty::Easy:
-        EasyPlacement();
+        easy.StartPlacing();
         break;
     case AIDifficulty::Medium:
-        MediumPlacement();
+        
         break;
     case AIDifficulty::Hard:
-        HardPlacement();
+        
         break;
     }
 
@@ -58,22 +52,3 @@ void AIPlaceCell()
 	ShowGrid();
 	AskWhereToPlace(SwitchPlayer(player2Shape), false);
 }
-
-void EasyPlacement() 
-{
-    while (true)
-    {
-        if (SetCellToSomething(player2Shape, RandomNumber())) break; // Successfully placed the cell, exit the loop
-    }
-}
-
-void MediumPlacement()
-{
-
-}
-
-void HardPlacement() 
-{
-
-}
-
