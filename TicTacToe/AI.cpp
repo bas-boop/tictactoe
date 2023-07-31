@@ -1,6 +1,8 @@
 #include <iostream>
 #include "AI.h"
 #include "EasyAI.h"
+#include "MediumAI.h"
+#include "HardAI.h"
 #include "Grid.h"
 #include "InputHandeler.h"
 
@@ -33,16 +35,18 @@ void SetDifficulty(char target)
 void AIPlaceCell()
 {
     EasyAI easy;
+    MediumAI medium;
+    HardAI hard;
     
     switch (currentDifficulty) {
     case AIDifficulty::Easy:
         easy.StartPlacing();
         break;
     case AIDifficulty::Medium:
-        
+        medium.StartPlacing();
         break;
     case AIDifficulty::Hard:
-        
+        hard.StartPlacing();
         break;
     }
 

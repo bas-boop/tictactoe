@@ -39,6 +39,12 @@
     <ClCompile Include="BaseAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
+    <ClCompile Include="MediumAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="HardAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Grid.h">
@@ -54,6 +60,12 @@
       <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="EasyAI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="MediumAI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="HardAI.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
   </ItemGroup>

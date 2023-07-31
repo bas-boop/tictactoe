@@ -130,8 +130,10 @@
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="BaseAI.cpp" />
     <ClCompile Include="EasyAI.cpp" />
+    <ClCompile Include="HardAI.cpp" />
     <ClCompile Include="InputHandeler.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="MediumAI.cpp" />
     <ClCompile Include="TicTacToe.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +141,9 @@
     <ClInclude Include="BaseAI.h" />
     <ClInclude Include="EasyAI.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="HardAI.h" />
     <ClInclude Include="InputHandeler.h" />
+    <ClInclude Include="MediumAI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
