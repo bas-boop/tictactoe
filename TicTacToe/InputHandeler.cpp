@@ -70,23 +70,32 @@ void AskAgain(CellState currentPlayer)
 {
 	char charValue = static_cast<char>(currentPlayer);
 	std::cout << "\nThat spot is already taken, choose a different place.\nWhere do you want to place " << charValue << " ";
-	std::cin >> targetPlace;
-
-	if (!SetCellToSomething(currentPlayer, targetPlace))
-		AskAgain(currentPlayer);
+	InValidInput(currentPlayer);
 }
 
 void PlayerPlace(CellState currentPlayer)
 {
 	char charValue = static_cast<char>(currentPlayer);
 	std::cout << "\nWhere do you want to place " << charValue << " ";
-	std::cin >> targetPlace;
+		
+	InValidInput(currentPlayer);
+	ShowGrid();
+	AskWhereToPlace(SwitchPlayer(currentPlayer));
+}
+
+void InValidInput(CellState currentPlayer) 
+{
+	while (!(std::cin >> targetPlace))
+	{
+		std::cout << "Invalid input. Please enter an number between 1 and 9: ";
+
+		// Clear the error state and ignore any remaining characters in the input buffer
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 
 	if (!SetCellToSomething(currentPlayer, targetPlace))
 		AskAgain(currentPlayer);
-
-	ShowGrid();
-	AskWhereToPlace(SwitchPlayer(currentPlayer));
 }
 
 void AIPLace(CellState aiPlayer)

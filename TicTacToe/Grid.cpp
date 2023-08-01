@@ -68,7 +68,7 @@
 
 	bool IsValidCell(int place)
 	{
-		if (place >= 10) return false;
+		if (place >= 10 || place <= 0) return false;
 		if (validCells[place - 1]) return false;
 
 		validCells[place - 1] = true;
