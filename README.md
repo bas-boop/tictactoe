@@ -14,6 +14,6 @@ A console app where you can play tic-tac-toe with somelse.<br>
 
 ## AI scripts
 [AI](TicTacToe/AI.cpp)<br>
-[Easy] (TicTacToe/EasyAI.cpp)<br>
-[Medium] (TicTacToe/MeduimAI.cpp)<br>
-[Hard] (TicTacToe/HardAI.cpp)
+[Easy](TicTacToe/EasyAI.cpp)<br>
+[Medium](TicTacToe/MeduimAI.cpp)<br>
+[Hard](TicTacToe/HardAI.cpp)
