@@ -90,6 +90,26 @@
 		return 0; // No almost-3-in-a-row found
 	}
 
+	int IsOneEmptySpotLeft()
+	{
+		int emptyCount = 0;
+		int emptyIndex = -1;
+
+		for (int i = 0; i < 9; ++i) {
+			if (!validCells[i]) {
+				emptyCount++;
+				emptyIndex = i;
+			}
+		}
+
+		if (emptyCount == 1) {
+			return emptyIndex + 1; // Return the index + 1 to match the grid numbering
+		}
+		else {
+			return -1; // No single empty spot or more than one
+		}
+	}
+
 	void SetGridEmpty()
 	{
 		for (int i = 0; i < 3; ++i) {

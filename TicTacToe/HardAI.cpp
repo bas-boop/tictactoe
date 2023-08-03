@@ -17,10 +17,12 @@ int HardAI::RandomStartingCell()
 
 void HardAI::StartPlacing()
 {
+	int lastSpot = IsOneEmptySpotLeft();
 	int targetCell = CheckForAlmostThreeInARow(player2Shape);
 	int playerTargetCell = CheckForAlmostThreeInARow(playerShape);
 
-	if (targetCell != 0) SetCellToSomething(player2Shape, targetCell);
+	if (lastSpot != -1)   SetCellToSomething(player2Shape, lastSpot);
+	else if (targetCell != 0) SetCellToSomething(player2Shape, targetCell);
 	else if (playerTargetCell != 0) SetCellToSomething(player2Shape, playerTargetCell);
 	else 
 	{

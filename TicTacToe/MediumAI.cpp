@@ -11,8 +11,11 @@ int MediumAI::RandomNumber()
 
 void MediumAI::StartPlacing()
 {
+	int lastSpot = IsOneEmptySpotLeft();
 	int targetCell = CheckForAlmostThreeInARow(player2Shape);
-	if (targetCell == 0) 
+
+	if (lastSpot != -1)   SetCellToSomething(player2Shape, lastSpot);
+	else if (targetCell == 0) 
 	{
 		while (true)
 		{

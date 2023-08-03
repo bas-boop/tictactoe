@@ -10,9 +10,15 @@ int EasyAI::RandomNumber()
 
 void EasyAI::StartPlacing()
 {
-	while (true)
+	int lastSpot = IsOneEmptySpotLeft();
+	if (lastSpot != -1)   SetCellToSomething(player2Shape, lastSpot);
+	else
 	{
-		if (SetCellToSomething(player2Shape, RandomNumber())) break; // Successfully placed the cell, exit the loop
+		while (true)
+		{
+			if (SetCellToSomething(player2Shape, RandomNumber())) break; // Successfully placed the cell, exit the loop
+		}
 	}
+	
 	std::cout << "\nAI has placed\n";
 }
