@@ -1,15 +1,11 @@
 #include <iostream>
-//#include "BaseAI.h"
 #include "MediumAI.h"
 #include "InputHandeler.h"
 #include "Grid.h"
 
 int MediumAI::RandomNumber()
 {
-	/* initialize random seed: */
 	srand(time(NULL));
-
-	/* generate secret number: */
 	return rand() % 9 + 1;
 }
 

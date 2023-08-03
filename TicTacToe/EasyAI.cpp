@@ -1,14 +1,10 @@
 #include <iostream>
-//#include "BaseAI.h"
 #include "EasyAI.h"
 #include "InputHandeler.h"
 
 int EasyAI::RandomNumber()
 {
-	/* initialize random seed: */
 	srand(time(NULL));
-
-	/* generate secret number: */
 	return rand() % 9 + 1;
 }
 

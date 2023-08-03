@@ -8,7 +8,7 @@ class BaseAI; // Forward declaration
 class HardAI : public BaseAI
 {
 private:
-	int RandomNumber();
+	int RandomStartingCell();
 
 public:
 	void StartPlacing() override;
