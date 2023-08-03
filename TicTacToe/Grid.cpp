@@ -40,6 +40,56 @@
 		return false;
 	}
 
+	int CheckForAlmostThreeInARow(CellState state) {
+		for (int i = 0; i < 3; ++i) {
+
+			// Check rows for almost-3-in-a-row
+			if ((grid[i][0] == state && grid[i][1] == state && grid[i][2] == CellState::Empty) ||
+				(grid[i][0] == state && grid[i][1] == CellState::Empty && grid[i][2] == state) ||
+				(grid[i][0] == CellState::Empty && grid[i][1] == state && grid[i][2] == state)) {
+
+				// Return the index of the empty cell in the row
+				if (grid[i][0] == CellState::Empty) 
+					return i * 3 + 1;
+				if (grid[i][1] == CellState::Empty) 
+					return i * 3 + 2;
+				if (grid[i][2] == CellState::Empty) 
+					return i * 3 + 3;
+			}
+
+			// Check columns for almost-3-in-a-row
+			if ((grid[0][i] == state && grid[1][i] == state && grid[2][i] == CellState::Empty) ||
+				(grid[0][i] == state && grid[1][i] == CellState::Empty && grid[2][i] == state) ||
+				(grid[0][i] == CellState::Empty && grid[1][i] == state && grid[2][i] == state)) {
+				// Return the index of the empty cell in the column
+				if (grid[0][i] == CellState::Empty) 
+					return i + 1;
+				if (grid[1][i] == CellState::Empty) 
+					return i + 4;
+				if (grid[2][i] == CellState::Empty) 
+					return i + 7;
+			}
+		}
+
+		// Check diagonals for almost-3-in-a-row
+		if ((grid[0][0] == state && grid[1][1] == state && grid[2][2] == CellState::Empty) ||
+			(grid[0][0] == state && grid[1][1] == CellState::Empty && grid[2][2] == state) ||
+			(grid[0][0] == CellState::Empty && grid[1][1] == state && grid[2][2] == state) ||
+			(grid[0][2] == state && grid[1][1] == state && grid[2][0] == CellState::Empty) ||
+			(grid[0][2] == state && grid[1][1] == CellState::Empty && grid[2][0] == state) ||
+			(grid[0][2] == CellState::Empty && grid[1][1] == state && grid[2][0] == state)) {
+
+			// Return the index of the empty cell in the diagonal
+			if (grid[0][0] == CellState::Empty) return 1;
+			if (grid[1][1] == CellState::Empty) return 5;
+			if (grid[2][2] == CellState::Empty) return 9;
+			if (grid[0][2] == CellState::Empty) return 3;
+			if (grid[2][0] == CellState::Empty) return 7;
+		}
+
+		return 0; // No almost-3-in-a-row found
+	}
+
 	void SetGridEmpty()
 	{
 		for (int i = 0; i < 3; ++i) {

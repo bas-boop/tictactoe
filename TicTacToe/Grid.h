@@ -13,6 +13,6 @@ bool SetCellToSomething(CellState targetState, int place);
 bool CheckForWinner();
 bool IsValidCell(int place);
 bool CheckForDraw();
-
+int CheckForAlmostThreeInARow(CellState state);
 
 #endif

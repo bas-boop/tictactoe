@@ -49,7 +49,7 @@ void AskCoopOrAI()
 	if (input == 'C') 
 	{ 
 		isAI = true;
-		SetDifficulty('E');
+		SetDifficulty('M');
 		AskWhereToPlace(CoinFlip(), isAI);
 	}
 	else if (input == 'F') 

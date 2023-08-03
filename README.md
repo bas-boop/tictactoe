@@ -4,11 +4,16 @@ A console app where you can play tic-tac-toe with somelse.<br>
 - [x] Co-op
 - [ ] AI opponent
   - [x] Easy
-  - [ ] Medium
+  - [x] Medium
   - [ ] Hard
 
 ## Script highlights
 [Main](TicTacToe/TicTacToe.cpp)<br>
 [InputHandeler](TicTacToe/InputHandeler.cpp)<br>
-[Grid](TicTacToe/Grid.cpp)<br>
-[AI](TicTacToe/AI.cpp)
+[Grid](TicTacToe/Grid.cpp)
+
+## AI scripts
+[AI](TicTacToe/AI.cpp)<br>
+[Easy] (TicTacToe/EasyAI.cpp)<br>
+[Medium] (TicTacToe/MeduimAI.cpp)<br>
+[Hard] (TicTacToe/HardAI.cpp)

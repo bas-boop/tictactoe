@@ -2,6 +2,7 @@
 //#include "BaseAI.h"
 #include "MediumAI.h"
 #include "InputHandeler.h"
+#include "Grid.h"
 
 int MediumAI::RandomNumber()
 {
@@ -14,9 +15,16 @@ int MediumAI::RandomNumber()
 
 void MediumAI::StartPlacing()
 {
-	while (true)
+	int targetCell = CheckForAlmostThreeInARow(player2Shape);
+	if (targetCell == 0) 
 	{
-		if (SetCellToSomething(player2Shape, RandomNumber())) break; // Successfully placed the cell, exit the loop
+		while (true)
+		{
+			if (SetCellToSomething(player2Shape, RandomNumber())) break; // Successfully placed the cell, exit the loop
+		}
 	}
+	else SetCellToSomething(player2Shape, targetCell);
+
+	
 	std::cout << "\nAI has placed\n";
 }
