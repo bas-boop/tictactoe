@@ -6,6 +6,7 @@ int main()
 {
     ShowStartDialogue();
     SetGridEmpty();
+    SetAIToEmpty();
     AskCoopOrAI();
     if(PlayAgain()) main();
 

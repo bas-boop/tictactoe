@@ -40,7 +40,7 @@ void ChooseShape()
 
 void AskCoopOrAI()
 {
-	std::cout << "Do you play against the computer or with a friend?\nTyp C or F";
+	std::cout << "Do you play against the computer or with a friend?\nTyp C or F\n";
 	char input;
 	std::cin >> input;
 
@@ -49,11 +49,25 @@ void AskCoopOrAI()
 	if (input == 'C') 
 	{ 
 		isAI = true;
-		SetDifficulty('H');
+		AskWichDifficulty();
 		AskWhereToPlace(CoinFlip(), isAI);
 	}
 	else if (input == 'F') 
 		AskWhereToPlace(CoinFlip());
+}
+
+void AskWichDifficulty() 
+{
+	std::cout << "What difficulty do you want to play against?\n";
+
+	char difficulty;
+	do {
+		std::cout << "Typ E for easy, M for medium, H for hard.\n";
+		std::cin >> difficulty; //todo: input can only be 1 char, not a string.
+		if (difficulty == 'E' || difficulty == 'M' || difficulty == 'H') break;
+	} while (difficulty == 'E' || difficulty == 'M' || difficulty == 'H');
+
+	SetDifficulty(difficulty);
 }
 
 void AskWhereToPlace(CellState currentPlayer, bool isAITurn)
@@ -119,14 +133,8 @@ CellState CoinFlip()
 	srand(time(NULL));
 	int randomNumber = rand() % 2;
 
-	if (randomNumber == 1)
-	{
-		std::cout << "\nPlayer 2 goes first.\n";
-		return player2Shape;
-	}
-
-	std::cout << "\nPlayer 1 goes first.\n";
-	return playerShape;
+	if (randomNumber == 1) return player2Shape;
+	else return playerShape;
 }
 
 CellState SwitchPlayer(CellState currentPlayer)
@@ -135,4 +143,9 @@ CellState SwitchPlayer(CellState currentPlayer)
 	CellState newPlayer;
 	if (currentPlayer == playerShape) return player2Shape;
 	else if (currentPlayer == player2Shape) return playerShape;
+}
+
+void SetAIToEmpty() 
+{
+	isAI = false;
 }

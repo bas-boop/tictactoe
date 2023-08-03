@@ -2,7 +2,7 @@
 A console app where you can play tic-tac-toe with somelse.<br>
 
 - [x] Co-op
-- [ ] AI opponent
+- [X] AI opponent
   - [x] Easy
   - [x] Medium
   - [X] Hard

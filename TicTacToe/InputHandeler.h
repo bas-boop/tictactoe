@@ -12,6 +12,8 @@ void AskAgain(CellState currentPlayer);
 void PlayerPlace(CellState currentPlayer);
 void AIPLace(CellState aiPlayer);
 void ChooseShape();
+void AskWichDifficulty();
+void SetAIToEmpty();
 void InValidInput(CellState currentPlayer);
 bool PlayAgain();
 CellState CoinFlip();
