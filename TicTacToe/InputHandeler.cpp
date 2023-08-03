@@ -60,14 +60,18 @@ void AskWichDifficulty()
 {
 	std::cout << "What difficulty do you want to play against?\n";
 
-	char difficulty;
 	do {
-		std::cout << "Typ E for easy, M for medium, H for hard.\n";
-		std::cin >> difficulty; //todo: input can only be 1 char, not a string.
-		if (difficulty == 'E' || difficulty == 'M' || difficulty == 'H') break;
-	} while (difficulty == 'E' || difficulty == 'M' || difficulty == 'H');
+        std::cout << "Type E for easy, M for medium, H for hard.\n";
+		char difficulty;
+        std::cin >> difficulty;
 
-	SetDifficulty(difficulty);
+        if (difficulty == 'E' || difficulty == 'M' || difficulty == 'H') {
+            SetDifficulty(difficulty);
+            break; // Correct input, exit the loop
+        } else {
+            std::cout << "Invalid input. Please enter E, M, or H.\n";
+        }
+    } while (true); // Keep asking until valid input is given
 }
 
 void AskWhereToPlace(CellState currentPlayer, bool isAITurn)
